@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agrega_familiar.css">
+    <title>Agregado de familia</title>
+
+    <style>
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        h1{
+            color: rgb(226, 8, 8);
+            text-align: center;
+        }
+
+        .name{
+            color: blue;
+        }
+
+        .surname{
+            color: green;
+        }
+
+        .date{
+            color: violet;
+        }
+
+        .container{
+            position: center;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            margin-left: 20px;
+            width: 300px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Agregado de familia</h1>
+    <br>
+    <h3>Familiar agregado: </h3>
+    
+    <div class="container">
+        <p class="name">Nombre: {{name}}</p>
+        <p class="surname">Apellido: {{surname}}</p>
+        <p class="date">Fecha de nacimiento: {{birth_date.day}}/{{birth_date.month}}/{{birth_date.year}}</p>
+    </div>
+    
+</body>
+</html>
