@@ -1,80 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="agrega_familiar.css">
-    <title>Listado familiar</title>
-    
-    <style>
+{% extends 'padre.html' %}
+
+{% block muestraFamilia %}
+<section class="page-section bg-primary" id="Listado2">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">Listado de las familias ingresadas al momento</h2>
+                <hr class="divider divider-light" />
+                    {% for familiar in lista_familia %}
+                        
+                        <li>{{familiar.nombre}} {{familiar.apellido}} {{familiar.fecha_nac.day}}/{{familiar.fecha_nac.month}}/{{familiar.fecha_nac.year}}</li> 
+                        
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock muestraFamilia %}
         
-        body{
-            background-color: black;
-        }
-        
-        h1{
-            color:red;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
-
-        h3{
-            color: aqua;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .table-db{
-            margin-left: 500px;
-            /*border: 1px solid black;*/
-            color: yellow;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        tr,th{
-            /*border: 1px solid rgb(7, 6, 6);*/
-            padding: 0px 10px
-        }
-    </style>
-
-</head>
-<body>
-    <h1>Listado familiar</h1>
-
-    <h3>Este es el listado registrado en la base de datos:</h3>
-
-    <!--<ol>
-        {% for familiar in lista_familia %}
-            
-            {% if lista_familia %}
-            
-                <li>{{familiar.nombre}} {{familiar.apellido}} {{familiar.edad}} años  {{familiar.fecha_nac.day}}/{{familiar.fecha_nac.month}}/{{familiar.fecha_nac.year}}</li>
-            {% else %}
-
-                <p>No hay ingresado ningún integrante al momento</p>
-            
-            {% endif %}
-
-        {% endfor %}
-    </ol>-->
-    
-    <table class="table-db">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Fecha de nacimiento</th>
-        </tr>
-
-        {% for familiar in lista_familia %}
-            <tr>
-                <th>{{familiar.nombre}}</th>
-                <th>{{familiar.apellido}}</th>
-                <th>{{familiar.fecha_nac.day}}/{{familiar.fecha_nac.month}}/{{familiar.fecha_nac.year}}</th>
-            </tr>
-        {% endfor %}
-            
-    </table>
-        
-</body>
-</html>

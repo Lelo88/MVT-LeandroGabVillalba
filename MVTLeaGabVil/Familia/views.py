@@ -21,7 +21,12 @@ def agrega_familiar(request, nombre, apellido, fecha_nac):
     return HttpResponse(documento)
 
 def muestra_familia(request):
-    
+
     familia = Familiar.objects.all()
-    
+
     return render(request, 'listado_familiar.html',{"lista_familia": familia})
+
+def inicio(request):
+    
+    return render(request,'inicio.html')
+

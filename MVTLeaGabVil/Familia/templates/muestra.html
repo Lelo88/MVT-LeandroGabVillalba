@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+
+{% block muestraFamilia %}
+
+    <section class="page-section bg-primary" id="{% url 'Listado' %}">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mt-0">Listado de las familias ingresadas al momento</h2>
+                    <hr class="divider divider-light" />
+                        {% for familiar in lista_familia %}
+                            
+                            <li>{{familiar.nombre}} {{familiar.apellido}} {{familiar.fecha_nac.day}}/{{familiar.fecha_nac.month}}/{{familiar.fecha_nac.year}}</li> 
+                            
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock muestraFamilia%}
+    
