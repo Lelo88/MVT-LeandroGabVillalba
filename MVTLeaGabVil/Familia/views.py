@@ -1,8 +1,9 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Familiar
 from django.http import HttpResponse
 from django.template import loader
+from .forms import Familiares
 # Create your views here.
 
 def agrega_familiar(request, nombre, apellido, fecha_nac):
@@ -30,3 +31,19 @@ def inicio(request):
     
     return render(request,'inicio.html')
 
+def familiares(request):
+    if request.method == 'POST':
+        familia=Familiares(request.POST)
+        
+        if familia.is_valid():
+            informacion = familia.cleaned_data
+            familiar = Familiar(nombre=informacion['nombre'], apellido=informacion['apellido'], fecha_nac = informacion['fechanac'])
+            familiar.save()
+            
+            return redirect('Listado2')
+            #return render(request, 'inicio.html')
+    else:
+        familia = Familiares()
+        
+    return render(request, 'formularioFamilia.html', {'familiar': familia})
+        

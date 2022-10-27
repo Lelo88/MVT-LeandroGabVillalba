@@ -1,0 +1,16 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block muestraFamilia %}
+<form action="{% url 'Familiares' %}" method="POST">
+    
+    {% csrf_token %}
+
+    {{ familiar.as_p }}
+
+    <input type="submit" value="Enviar">
+    
+</form>
+{% endblock muestraFamilia %}
+    
